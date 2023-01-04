@@ -1,0 +1,6 @@
+<h1>Edit review</h1>
+<form action="/rooms/{{ roomId }}/review/{{ review._id }}/edit" method="POST">
+    <textarea name="comment" id="comment" placeholder="Enter your review" maxlength="200" required>{{ review.comment }}</textarea><br/>
+    <p>200 characters max.</p><br/>
+    <input type="submit" value="Update review" class="button">
+</form>

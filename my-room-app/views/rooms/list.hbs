@@ -1,0 +1,26 @@
+<h1>Rooms</h1>
+{{#if noRoomsMessage}}
+<p>{{ noRoomsMessage }}</p>
+{{/if}}
+
+{{#each rooms}}
+<div class="room">
+    <div class="room-infos">
+        <img src="{{ imageUrl }}" />
+        <div class="room-text">
+            <h2><a href="/rooms/{{ _id }}/view">{{ name }}</a></h2>
+            <i>Created by {{ owner.fullName }}</i><br/><br/>
+            <p>{{ description }}</p>
+        </div>
+    </div>
+    {{#if ../userLoggedIn}}    
+        <div class="room-actions">
+            <div><a href="/rooms/{{_id}}/view" class="button">View room</a></div>
+            {{!-- {{#if ../isOwner}}
+                <div><a href="/rooms/{{_id}}/edit" class="button">Edit room</a></div>
+                <div><form action="/rooms/{{_id}}/delete" method="POST"><input type="submit" value="Delete room" class="button"></form></div>
+            {{/if}} --}}
+        </div>
+    {{/if}}
+</div>
+{{/each}}

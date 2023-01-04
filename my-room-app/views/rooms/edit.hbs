@@ -1,0 +1,7 @@
+<h1>Update room</h1>
+<form action="/rooms/{{_id}}/edit" method="POST" enctype="multipart/form-data">
+    <input type="text" name="name" id="name" placeholder="Enter the room's name" value="{{ name }}" required /><br/>
+    <textarea name="desc" id="desc" placeholder="Enter description" required>{{ description }}</textarea><br/>
+    <input type="file" name="roomImg" id="roomImg"><br/><br/>
+    <input type="submit" value="Update room" class="button" />
+</form>

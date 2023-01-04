@@ -1,0 +1,11 @@
+{{#if loggedIn}}
+You are logged in!
+{{/if}}
+
+<h1>Create room</h1>
+<form action="/rooms/create" method="POST" enctype="multipart/form-data">
+    <input type="text" name="name" id="name" placeholder="Enter the room's name" required /><br/>
+    <textarea name="desc" id="desc" placeholder="Enter description" required></textarea><br/>
+    <input type="file" name="roomImg" id="roomImg"><br/><br/>
+    <input type="submit" value="Create room" class="button">
+</form>

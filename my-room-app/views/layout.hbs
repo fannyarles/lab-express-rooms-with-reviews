@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>{{appTitle}}</title>
+      <link rel="stylesheet" href="/stylesheets/reset.css" />
+      <link rel="stylesheet" href="/stylesheets/style.css" />
+   </head>
+
+   <body>
+
+      <nav>
+         <ul>
+            <li><a href="/rooms/list">Rooms</a></li>
+            {{#if userLoggedIn}}
+               <li><a href="/rooms/create">Create a room</a></li>
+            {{/if}}
+         </ul>
+         <ul>
+            {{#if userLoggedIn}}
+               <li>You are logged in!</li>
+               <li>
+                  <form action="/auth/logout" method="POST">
+                     <input type="submit" value="Logout" class="button">
+                  </form>
+               </li>
+            {{else}}
+               <li><a href="/auth/signup" class="button">Signup</a></li>
+               <li><a href="/auth/login" class="button">Login</a></li>
+            {{/if}}
+         </ul>
+      </nav>
+
+      {{{body}}}
+
+      <script src="/js/script.js"></script>
+   </body>
+
+</html>

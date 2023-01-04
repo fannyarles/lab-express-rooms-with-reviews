@@ -1,0 +1,31 @@
+<a href="/rooms/list">Back to rooms</a><br/><br/>
+<div class="room">
+    <div class="room-infos">
+        <img src="{{ room.imageUrl }}" />
+        <div class="room-text">
+            <h1>{{ room.name }}</h1>
+            <i>Created by {{ room.owner.fullName }}</i><br/><br/>
+            <p>{{ room.description }}</p>
+        </div>
+    </div>
+    <div class="room-actions">
+        <div><a href="/rooms/{{room._id}}/review/add" class="button">Add a review</a></div>
+        {{#if isRoomOwner}}
+            <div><a href="/rooms/{{room._id}}/edit" class="button">Edit room</a></div>
+            <div><form action="/rooms/{{room._id}}/delete" method="POST"><input type="submit" value="Delete room" class="button"></form></div>
+        {{/if}}
+    </div>
+</div>
+
+<h3>Reviews ({{ reviewsCount }})</h3>
+{{#each room.reviews }}
+    <div class="review">
+        <p>{{ comment }}<br/><br/> – <i>{{ user.fullName }}</i></p>
+        {{#if (isEqual this.user ../userLoggedIn)}}
+            <div class="review-actions">
+                <div><a href="/rooms/{{../room._id}}/review/{{ _id }}/edit" class="button">Edit review</a></div>
+                <div><form action="/rooms/{{../room._id}}/review/{{ _id }}/delete" method="POST"><input type="submit" value="Delete review" class="button"></form></div>
+            </div>
+        {{/if}}
+    </div>
+{{/each}}

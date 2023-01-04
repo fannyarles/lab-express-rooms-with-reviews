@@ -1,0 +1,6 @@
+<h1>Add a review</h1>
+<form action="/rooms/{{ roomId }}/review/add" method="POST">
+    <textarea name="comment" id="comment" placeholder="Enter your review" maxlength="200" required></textarea><br/>
+    <p>200 characters max.</p><br/>
+    <input type="submit" value="Add review" class="button" />
+</form>
